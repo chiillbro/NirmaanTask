@@ -46,7 +46,7 @@ const TaskItem: React.FC<TaskItemProps> = ({
           type="text"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
-          className="border p-1 flex-grow"
+          className="border text-black outline-none p-1 flex-grow"
         />
       ) : (
         <span className={`flex-grow ${task.completed ? "line-through" : ""}`}>

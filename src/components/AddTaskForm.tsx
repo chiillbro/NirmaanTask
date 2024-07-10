@@ -36,7 +36,7 @@ const AddTaskForm: React.FC<AddTaskFormProps> = ({ addTask }) => {
         ref={inputRef}
         value={title}
         onChange={(e) => setTitle(e.target.value)}
-        className="border border-gray-300 p-2 flex-grow"
+        className="border text-black border-gray-300 p-2 flex-grow outline-none"
         placeholder="Add new task"
       />
       <button type="submit" className="bg-blue-500 text-white p-2">

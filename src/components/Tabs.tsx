@@ -51,14 +51,14 @@ const Tabs: React.FC = () => {
           <button
             key={tab.id}
             className={` relative p-2 rounded-sm ${
-              activeTab === tab.id ? "bg-blue-500 text-white" : "bg-gray-300"
+              activeTab === tab.id ? "bg-blue-500 text-white" : "bg-gray-400"
             }`}
           >
             <p onClick={() => setActiveTab(tab.id)}>{tab.title}</p>
 
             <p
               onClick={() => handleRemoveTab(tab.id)}
-              className={`absolute -right-1 -top-2 bg-black rounded-full w-[14px] h-[20px] text-white ${
+              className={`absolute -right-1 -top-2 bg-white rounded-full w-[14px] h-[20px] text-black ${
                 tab.id === "0" ? "hidden" : "flex"
               }  items-center justify-center`}
             >
