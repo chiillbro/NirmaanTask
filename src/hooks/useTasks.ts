@@ -6,15 +6,15 @@ export interface Task {
   completed: boolean;
 }
 
-const useTasks = () => {
+const useTasks = (tabId: string) => {
   const [tasks, setTasks] = useState<Task[]>(() => {
-    const savedTasks = sessionStorage.getItem("tasks");
+    const savedTasks = sessionStorage.getItem(`tasks_${tabId}`);
     return savedTasks ? JSON.parse(savedTasks) : [];
   });
 
   useEffect(() => {
-    sessionStorage.setItem("tasks", JSON.stringify(tasks));
-  }, [tasks]);
+    sessionStorage.setItem(`tasks_${tabId}`, JSON.stringify(tasks));
+  }, [tasks, tabId]);
 
   const addTask = (title: string) => {
     setTasks([
