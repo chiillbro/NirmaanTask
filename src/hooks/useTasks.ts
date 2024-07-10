@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import toast from "react-hot-toast";
 
 export interface Task {
   id: string;
@@ -21,6 +22,7 @@ const useTasks = (tabId: string) => {
       ...tasks,
       { id: Date.now().toString(), title, completed: false },
     ]);
+    toast.success(`${title} added successfully!`);
   };
 
   const editTask = (id: string, title: string) => {
@@ -28,7 +30,9 @@ const useTasks = (tabId: string) => {
   };
 
   const deleteTask = (id: string) => {
+    const deletedItem = tasks.filter((task) => task.id === id);
     setTasks(tasks.filter((task) => task.id !== id));
+    toast.success(`${deletedItem[0].title} deleted successfully!`);
   };
 
   const toggleTask = (id: string) => {

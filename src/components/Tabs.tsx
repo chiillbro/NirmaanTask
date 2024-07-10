@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import TabContent from "./TabContent";
+import toast from "react-hot-toast";
 
 interface Tab {
   id: string;
@@ -32,7 +33,9 @@ const Tabs: React.FC = () => {
       sessionStorage.setItem("tabs", JSON.stringify(filteredTabs));
 
       if (activeTab === tabId) {
-        const currentIndex = Number(tabId);
+        const currentIndex = prevTabs.findIndex((tab) => tab.id === tabId);
+
+        // console.log(currentIndex);
         if (currentIndex > 0) {
           setActiveTab(filteredTabs[currentIndex - 1].id);
         } else {
@@ -42,6 +45,8 @@ const Tabs: React.FC = () => {
 
       return filteredTabs;
     });
+
+    toast.success(`Tab ${Number(tabId) + 1} removed successfully!`);
   };
 
   return (
