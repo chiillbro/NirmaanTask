@@ -4,7 +4,7 @@ By Siva Sankar Reddy Asam
 
 ## Deployed Version
 
-Check out the live version of the application [here](https://cappsuletest.netlify.app/).
+Check out the live version of the application [here](https://nirmaantask.netlify.app/).
 
 ## Getting Started
 

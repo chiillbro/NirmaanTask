@@ -17,15 +17,24 @@ const TaskList: React.FC<TaskListProps> = ({
 }) => {
   return (
     <div className="flex flex-col gap-2">
-      {tasks.map((task) => (
-        <TaskItem
-          key={task.id}
-          task={task}
-          editTask={editTask}
-          deleteTask={deleteTask}
-          toggleTask={toggleTask}
-        />
-      ))}
+      {tasks.length === 0 ? (
+        <div className="text-center">
+          <h1 className="text-2xl">No tasks yet 😑</h1>
+          <p className="text-gray-500">
+            Add a task by providing a title in the input field and press Enter
+          </p>
+        </div>
+      ) : (
+        tasks.map((task) => (
+          <TaskItem
+            key={task.id}
+            task={task}
+            editTask={editTask}
+            deleteTask={deleteTask}
+            toggleTask={toggleTask}
+          />
+        ))
+      )}
     </div>
   );
 };
